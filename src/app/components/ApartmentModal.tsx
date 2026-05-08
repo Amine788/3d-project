@@ -43,16 +43,9 @@ export default function ApartmentModal() {
           <div className="flex flex-col h-full max-h-[90vh]">
             <div className="flex items-center justify-between p-6 border-b border-white/10">
               <div>
-                <div className="flex items-center gap-3">
-                  <h2 className="text-2xl sm:text-3xl font-light text-white">
-                    Appartement <span className="text-amber-400">{selectedApartment.number}</span>
-                  </h2>
-                  <div className="px-2 py-1 bg-amber-400/10 border border-amber-400/20 rounded-lg">
-                    <span className="text-[10px] font-black text-amber-400 uppercase tracking-tighter">
-                      R+{selectedApartment.floor}
-                    </span>
-                  </div>
-                </div>
+                <h2 className="text-2xl sm:text-3xl font-light text-white">
+                  Appartement <span className="text-amber-400">{selectedApartment.number}</span>
+                </h2>
                 <p className="text-sm text-slate-400 mt-1">
                   {selectedApartment.available ? 'Disponible' : 'Réservé'}
                 </p>
