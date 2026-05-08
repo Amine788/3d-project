@@ -33,7 +33,7 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center gap-4">
             <motion.a
-              href="https://maps.apple.com/place?address=R3%20Diar%20Es%20Soltane,%2035000%20Boumerd%C3%A8s,%20Algerie&ll=36.772110,3.461020&q=R3%20Diar%20Es%20Soltane"
+              href="https://maps.app.goo.gl/HnAcHVz3pdQyHg2j9"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
@@ -43,14 +43,15 @@ export default function Navbar() {
               <MapPin className="size-4" />
               <span className="text-sm font-medium">Localisation</span>
             </motion.a>
-            <motion.button
+            <motion.a
+              href="tel:+212636232187"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="flex items-center gap-2 bg-amber-400 text-slate-950 px-6 py-2.5 rounded-full hover:bg-amber-500 transition-colors"
             >
               <Phone className="size-4" />
               <span className="text-sm font-medium">Contact</span>
-            </motion.button>
+            </motion.a>
           </div>
 
           <button
@@ -71,7 +72,7 @@ export default function Navbar() {
         >
           <div className="px-4 py-6 space-y-3">
             <a
-              href="https://maps.apple.com/place?address=R3%20Diar%20Es%20Soltane,%2035000%20Boumerd%C3%A8s,%20Algerie&ll=36.772110,3.461020&q=R3%20Diar%20Es%20Soltane"
+              href="https://maps.app.goo.gl/HnAcHVz3pdQyHg2j9"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full transition-colors border border-white/20"
@@ -79,10 +80,13 @@ export default function Navbar() {
               <MapPin className="size-4" />
               <span className="text-sm font-medium">Localisation</span>
             </a>
-            <button className="w-full flex items-center justify-center gap-2 bg-amber-400 text-slate-950 px-6 py-3 rounded-full hover:bg-amber-500 transition-colors">
+            <a
+              href="tel:+212636232187"
+              className="w-full flex items-center justify-center gap-2 bg-amber-400 text-slate-950 px-6 py-3 rounded-full hover:bg-amber-500 transition-colors"
+            >
               <Phone className="size-4" />
               <span className="text-sm font-medium">Contact</span>
-            </button>
+            </a>
           </div>
         </motion.div>
       )}
