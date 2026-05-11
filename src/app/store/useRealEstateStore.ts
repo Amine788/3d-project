@@ -79,7 +79,7 @@ const realFloors: Floor[] = [
         price: 0,
         available: true,
         images: [planSousSol],
-        position: { x: 12, y: 30 },
+        position: { x: 50, y: 40 },
         color: 'blue'
       },
       {
@@ -91,7 +91,7 @@ const realFloors: Floor[] = [
         price: 0,
         available: true,
         images: [planSousSol],
-        position: { x: 12, y: 52 },
+        position: { x: 50, y: 48 },
         color: 'blue'
       },
       {
@@ -103,7 +103,7 @@ const realFloors: Floor[] = [
         price: 0,
         available: true,
         images: [planSousSol],
-        position: { x: 12, y: 74 },
+        position: { x: 50, y: 56 },
         color: 'blue'
       }
     ]
@@ -123,7 +123,7 @@ const realFloors: Floor[] = [
         price: 0,
         available: true,
         images: [planRDC],
-        position: { x: 12, y: 30 },
+        position: { x: 50, y: 40 },
         color: 'cyan'
       },
       {
@@ -135,7 +135,7 @@ const realFloors: Floor[] = [
         price: 0,
         available: true,
         images: [planRDC],
-        position: { x: 12, y: 52 },
+        position: { x: 50, y: 48 },
         color: 'cyan'
       },
       {
@@ -147,7 +147,7 @@ const realFloors: Floor[] = [
         price: 0,
         available: true,
         images: [planRDC],
-        position: { x: 12, y: 74 },
+        position: { x: 50, y: 56 },
         color: 'cyan'
       }
     ]
@@ -167,7 +167,7 @@ const realFloors: Floor[] = [
         price: 0,
         available: true,
         images: [app103Image, plan1erEtage],
-        position: { x: 12, y: 30 },
+        position: { x: 50, y: 38 },
         color: 'beige'
       },
       {
@@ -179,7 +179,7 @@ const realFloors: Floor[] = [
         price: 0,
         available: true,
         images: [app101Image, plan1erEtage],
-        position: { x: 12, y: 52 },
+        position: { x: 24, y: 58 },
         color: 'pink'
       },
       {
@@ -191,7 +191,7 @@ const realFloors: Floor[] = [
         price: 0,
         available: true,
         images: [app102Image, plan1erEtage],
-        position: { x: 12, y: 74 },
+        position: { x: 50, y: 58 },
         color: 'yellow'
       }
     ]
@@ -211,7 +211,7 @@ const realFloors: Floor[] = [
         price: 0,
         available: true,
         images: [app201Image, plan2emeEtage],
-        position: { x: 12, y: 30 },
+        position: { x: 24, y: 58 },
         color: 'beige'
       },
       {
@@ -223,7 +223,7 @@ const realFloors: Floor[] = [
         price: 0,
         available: true,
         images: [app202Image, plan2emeEtage],
-        position: { x: 12, y: 52 },
+        position: { x: 50, y: 58 },
         color: 'yellow'
       },
       {
@@ -235,7 +235,7 @@ const realFloors: Floor[] = [
         price: 0,
         available: true,
         images: [app203Image, plan2emeEtage],
-        position: { x: 12, y: 74 },
+        position: { x: 50, y: 38 },
         color: 'pink'
       }
     ]
@@ -255,7 +255,7 @@ const realFloors: Floor[] = [
         price: 0,
         available: true,
         images: [app301Image, plan3emeEtage],
-        position: { x: 12, y: 40 },
+        position: { x: 35, y: 50 },
         color: 'beige'
       },
       {
@@ -267,7 +267,7 @@ const realFloors: Floor[] = [
         price: 0,
         available: true,
         images: [app302Image, plan3emeEtage],
-        position: { x: 12, y: 65 },
+        position: { x: 65, y: 40 },
         color: 'pink'
       }
     ]

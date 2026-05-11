@@ -68,169 +68,44 @@ export default function FacadeViewer() {
 
           {/* Boutons d'étages sur la façade */}
           <div className="absolute inset-0">
-            {/* Bouton R+3 - 3ème étage */}
-            <motion.button
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.5 }}
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={() => setCurrentFloor('r+3')}
-              className="absolute group"
-              style={{
-                left: '50%',
-                top: '28%',
-                transform: 'translate(-50%, -50%)',
-              }}
-            >
-              <motion.div
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.3, 0.5, 0.3],
+            {[
+              { id: 'r+3', label: 'R+3', top: '28%', mobileTop: '41%', delay: 0.5 },
+              { id: 'r+2', label: 'R+2', top: '44%', mobileTop: '47%', delay: 0.6 },
+              { id: 'r+1', label: 'R+1', top: '60%', mobileTop: '53%', delay: 0.7 },
+              { id: 'rdc', label: 'RDC', top: '76%', mobileTop: '59%', delay: 0.8 },
+              { id: 'sous-sol', label: 'S-SOL', top: '88%', mobileTop: '65%', delay: 0.9 },
+            ].map((btn) => (
+              <motion.button
+                key={btn.id}
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: btn.delay }}
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => setCurrentFloor(btn.id)}
+                className="absolute group left-1/2 -translate-x-1/2"
+                style={{
+                  top: window.innerWidth < 640 ? btn.mobileTop : btn.top,
                 }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                }}
-                className="absolute inset-0 rounded-lg blur-xl bg-slate-950 -z-10"
-              />
-              <div className="px-3 py-1 rounded-lg bg-slate-950 border border-white/40 flex items-center justify-center shadow-xl backdrop-blur-sm">
-                <span className="text-white font-bold text-xs">R+3</span>
-              </div>
-            </motion.button>
-
-            {/* Bouton R+2 - 2ème étage */}
-            <motion.button
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={() => setCurrentFloor('r+2')}
-              className="absolute group"
-              style={{
-                left: '50%',
-                top: '44%',
-                transform: 'translate(-50%, -50%)',
-              }}
-            >
-              <motion.div
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.3, 0.5, 0.3],
-                }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                  delay: 0.3,
-                }}
-                className="absolute inset-0 rounded-lg blur-xl bg-slate-950 -z-10"
-              />
-              <div className="px-3 py-1 rounded-lg bg-slate-950 border border-white/40 flex items-center justify-center shadow-xl backdrop-blur-sm">
-                <span className="text-white font-bold text-xs">R+2</span>
-              </div>
-            </motion.button>
-
-            {/* Bouton R+1 - 1er étage */}
-            <motion.button
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.7 }}
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={() => setCurrentFloor('r+1')}
-              className="absolute group"
-              style={{
-                left: '50%',
-                top: '60%',
-                transform: 'translate(-50%, -50%)',
-              }}
-            >
-              <motion.div
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.3, 0.5, 0.3],
-                }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                  delay: 0.6,
-                }}
-                className="absolute inset-0 rounded-lg blur-xl bg-slate-950 -z-10"
-              />
-              <div className="px-3 py-1 rounded-lg bg-slate-950 border border-white/40 flex items-center justify-center shadow-xl backdrop-blur-sm">
-                <span className="text-white font-bold text-xs">R+1</span>
-              </div>
-            </motion.button>
-
-            {/* Bouton RDC - Rez-de-chaussée */}
-            <motion.button
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.8 }}
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={() => setCurrentFloor('rdc')}
-              className="absolute group"
-              style={{
-                left: '50%',
-                top: '76%',
-                transform: 'translate(-50%, -50%)',
-              }}
-            >
-              <motion.div
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.3, 0.5, 0.3],
-                }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                  delay: 0.9,
-                }}
-                className="absolute inset-0 rounded-lg blur-xl bg-slate-950 -z-10"
-              />
-              <div className="px-3 py-1 rounded-lg bg-slate-950 border border-white/40 flex items-center justify-center shadow-xl backdrop-blur-sm">
-                <span className="text-white font-bold text-xs">RDC</span>
-              </div>
-            </motion.button>
-
-            {/* Bouton Sous-sol */}
-            <motion.button
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.9 }}
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={() => setCurrentFloor('sous-sol')}
-              className="absolute group"
-              style={{
-                left: '50%',
-                top: '88%',
-                transform: 'translate(-50%, -50%)',
-              }}
-            >
-              <motion.div
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.3, 0.5, 0.3],
-                }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                  delay: 1.2,
-                }}
-                className="absolute inset-0 rounded-lg blur-xl bg-slate-950 -z-10"
-              />
-              <div className="px-3 py-1 rounded-lg bg-slate-950 border border-white/40 flex items-center justify-center shadow-xl backdrop-blur-sm">
-                <span className="text-white font-bold text-xs">S-SOL</span>
-              </div>
-            </motion.button>
+              >
+                <motion.div
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    opacity: [0.3, 0.5, 0.3],
+                  }}
+                  transition={{
+                    duration: 2.5,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                    delay: btn.delay,
+                  }}
+                  className="absolute inset-0 rounded-lg blur-xl bg-slate-950 -z-10"
+                />
+                <div className="px-3 py-1 rounded-lg bg-slate-950 border border-white/40 flex items-center justify-center shadow-xl backdrop-blur-sm">
+                  <span className="text-white font-bold text-[10px] sm:text-xs">{btn.label}</span>
+                </div>
+              </motion.button>
+            ))}
           </div>
         </div>
       </div>

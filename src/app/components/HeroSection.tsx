@@ -121,10 +121,10 @@ export default function HeroSection() {
           </div>
 
           <div className="space-y-4">
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-wider text-slate-900" style={{ color: '#B4955E' }}>
+            <h1 className="text-4xl sm:text-7xl lg:text-8xl font-bold tracking-wider text-slate-900" style={{ color: '#B4955E' }}>
               HAY SALAM
             </h1>
-            <p className="text-lg sm:text-xl text-slate-800 max-w-2xl mx-auto font-light">
+            <p className="text-base sm:text-xl text-slate-800 max-w-2xl mx-auto font-light px-4">
               Découvrez une expérience de vie exceptionnelle dans un cadre moderne et élégant
             </p>
           </div>

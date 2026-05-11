@@ -98,42 +98,46 @@ export default function BuildingViewer() {
 
                 <motion.div
                   whileHover={{
-                    boxShadow: '0 0 30px rgba(251, 191, 36, 0.6)',
+                    scale: 1.1,
+                    boxShadow: '0 0 40px rgba(251, 191, 36, 0.4)',
                   }}
-                  className="relative size-14 sm:size-16 rounded-xl flex flex-col items-center justify-center border-2 border-white/80 bg-gradient-to-br from-amber-400 to-amber-500 shadow-xl group-hover:from-amber-500 group-hover:to-amber-600 transition-all"
+                  className="relative size-8 sm:size-12 rounded-full flex flex-col items-center justify-center border border-white/40 bg-slate-950/80 backdrop-blur-md shadow-2xl group-hover:border-amber-400 transition-all"
                 >
-                  <span className="text-xs font-light text-slate-800 uppercase">
+                  <span className="text-[7px] sm:text-[9px] font-medium text-amber-400/80 uppercase tracking-tighter">
                     APP
                   </span>
-                  <span className="text-lg sm:text-xl font-black text-slate-950">
+                  <span className="text-xs sm:text-base font-bold text-white">
                     {apartment.number}
                   </span>
 
                   <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    className="absolute -top-1 -right-1 size-5 rounded-full bg-green-500 border-2 border-white flex items-center justify-center shadow-lg"
-                  >
-                    <motion.div
-                      animate={{
-                        scale: [1, 1.3, 1],
-                      }}
-                      transition={{
-                        duration: 1.5,
-                        repeat: Infinity,
-                      }}
-                      className="size-2 rounded-full bg-white"
-                    />
-                  </motion.div>
+                    className="absolute -inset-1 rounded-full border border-amber-400/20"
+                    animate={{
+                      scale: [1, 1.2, 1],
+                      opacity: [0.5, 0, 0.5],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: 'easeInOut',
+                    }}
+                  />
                 </motion.div>
 
                 <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  whileHover={{ opacity: 1, y: 0 }}
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 whitespace-nowrap bg-slate-950/95 backdrop-blur-xl px-3 py-2 rounded-xl border border-amber-400/40 pointer-events-none shadow-xl"
+                  initial={{ opacity: 0, y: 10, scale: 0.8 }}
+                  whileHover={{ opacity: 1, y: 0, scale: 1 }}
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-3 whitespace-nowrap bg-slate-900/95 backdrop-blur-2xl px-4 py-2.5 rounded-2xl border border-white/10 pointer-events-none shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-20"
                 >
-                  <p className="text-sm text-amber-400 font-bold">App {apartment.number}</p>
-                  <p className="text-xs text-white">{apartment.surface}m² • {apartment.bedrooms}ch</p>
+                  <div className="flex items-center gap-2 mb-1">
+                    <div className="size-2 rounded-full bg-green-500 animate-pulse" />
+                    <p className="text-xs text-amber-400 font-bold tracking-wider uppercase">Appartement {apartment.number}</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <p className="text-sm text-white font-medium">{apartment.surface} m²</p>
+                    <div className="w-px h-3 bg-white/20" />
+                    <p className="text-sm text-white font-medium">{apartment.bedrooms} Ch</p>
+                  </div>
                 </motion.div>
               </div>
             </motion.button>
