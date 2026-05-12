@@ -4,30 +4,30 @@ import { useRealEstateStore } from '../store/useRealEstateStore';
 import { useState, useEffect } from 'react';
 
 // Import des images réelles
-import salon1 from '../../imports/virtual_visit/ENTREE ET SALON/page-0009.jpg';
-import salon2 from '../../imports/virtual_visit/ENTREE ET SALON/page-0010.jpg';
-import salon3 from '../../imports/virtual_visit/ENTREE ET SALON/page-0011.jpg';
-import salon4 from '../../imports/virtual_visit/ENTREE ET SALON/page-0012.jpg';
-import salon5 from '../../imports/virtual_visit/ENTREE ET SALON/page-0013.jpg';
-import salon6 from '../../imports/virtual_visit/ENTREE ET SALON/page-0014.jpg';
+import salon1 from '../../imports/virtual_visit/entree-salon/page-0009.jpg';
+import salon2 from '../../imports/virtual_visit/entree-salon/page-0010.jpg';
+import salon3 from '../../imports/virtual_visit/entree-salon/page-0011.jpg';
+import salon4 from '../../imports/virtual_visit/entree-salon/page-0012.jpg';
+import salon5 from '../../imports/virtual_visit/entree-salon/page-0013.jpg';
+import salon6 from '../../imports/virtual_visit/entree-salon/page-0014.jpg';
 
-import cuisine1 from '../../imports/virtual_visit/CUISINE/page-0016.jpg';
-import cuisine2 from '../../imports/virtual_visit/CUISINE/page-0017.jpg';
-import cuisine3 from '../../imports/virtual_visit/CUISINE/page-0018.jpg';
+import cuisine1 from '../../imports/virtual_visit/cuisine/page-0016.jpg';
+import cuisine2 from '../../imports/virtual_visit/cuisine/page-0017.jpg';
+import cuisine3 from '../../imports/virtual_visit/cuisine/page-0018.jpg';
 
-import suite1 from '../../imports/virtual_visit/SUITE/page-0020.jpg';
-import suite2 from '../../imports/virtual_visit/SUITE/page-0021.jpg';
-import suite3 from '../../imports/virtual_visit/SUITE/page-0022.jpg';
-import suite4 from '../../imports/virtual_visit/SUITE/page-0023.jpg';
+import suite1 from '../../imports/virtual_visit/suite/page-0020.jpg';
+import suite2 from '../../imports/virtual_visit/suite/page-0021.jpg';
+import suite3 from '../../imports/virtual_visit/suite/page-0022.jpg';
+import suite4 from '../../imports/virtual_visit/suite/page-0023.jpg';
 
-import enfant1 from '../../imports/virtual_visit/CHAMBRE ENFANT/page-0025.jpg';
-import enfant2 from '../../imports/virtual_visit/CHAMBRE ENFANT/page-0026.jpg';
-import enfant3 from '../../imports/virtual_visit/CHAMBRE ENFANT/page-0027.jpg';
+import enfant1 from '../../imports/virtual_visit/chambre-enfant/page-0025.jpg';
+import enfant2 from '../../imports/virtual_visit/chambre-enfant/page-0026.jpg';
+import enfant3 from '../../imports/virtual_visit/chambre-enfant/page-0027.jpg';
 
-import sdb1 from '../../imports/virtual_visit/SALLE DE BAIN 1 -2/page-0029.jpg';
-import sdb2 from '../../imports/virtual_visit/SALLE DE BAIN 1 -2/page-0030.jpg';
-import sdb3 from '../../imports/virtual_visit/SALLE DE BAIN 1 -2/page-0032.jpg';
-import sdb4 from '../../imports/virtual_visit/SALLE DE BAIN 1 -2/page-0033.jpg';
+import sdb1 from '../../imports/virtual_visit/sdb/page-0029.jpg';
+import sdb2 from '../../imports/virtual_visit/sdb/page-0030.jpg';
+import sdb3 from '../../imports/virtual_visit/sdb/page-0032.jpg';
+import sdb4 from '../../imports/virtual_visit/sdb/page-0033.jpg';
 
 const ROOMS = [
   {
