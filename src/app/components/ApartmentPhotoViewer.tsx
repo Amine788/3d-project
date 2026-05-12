@@ -74,9 +74,17 @@ export default function ApartmentPhotoViewer() {
           <h2 className="text-2xl font-light text-white">
             Appartement <span className="text-amber-400 font-bold">{selectedApartment.number}</span>
           </h2>
-          <p className="text-sm text-slate-400 mt-1">
-            {selectedApartment.surface}m² • {selectedApartment.bedrooms} chambres
-          </p>
+          <div className="flex items-center gap-3 mt-1">
+            <p className="text-sm text-slate-400">
+              {selectedApartment.surface}m² • {selectedApartment.bedrooms} chambres
+            </p>
+            <div className="w-px h-3 bg-white/20" />
+            <span className={`text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${
+              selectedApartment.available ? 'text-green-400 bg-green-400/10' : 'text-red-400 bg-red-400/10'
+            }`}>
+              {selectedApartment.available ? 'Disponible' : 'Vendu'}
+            </span>
+          </div>
         </motion.div>
 
         <div
