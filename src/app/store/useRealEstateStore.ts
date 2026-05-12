@@ -249,7 +249,7 @@ const realFloors: Floor[] = [
         surface: 95,
         bedrooms: 3,
         price: 0,
-        available: true,
+        available: false,
         images: [app301Image, plan3emeEtage],
         position: { x: 35, y: 50 },
         color: 'beige'
@@ -261,7 +261,7 @@ const realFloors: Floor[] = [
         surface: 88,
         bedrooms: 2,
         price: 0,
-        available: false,
+        available: true,
         images: [app302Image, plan3emeEtage],
         position: { x: 65, y: 40 },
         color: 'pink'
