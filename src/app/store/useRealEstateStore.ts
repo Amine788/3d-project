@@ -6,18 +6,11 @@ import plan2emeEtage from '../../imports/2_eme_etage.png';
 import app103Image from '../../imports/appartement_n_103.png';
 import app101Image from '../../imports/appartement_n_101.png';
 import app102Image from '../../imports/appartement_n_102.png';
-import plan2emeEtage from '../../imports/2_eme_etage.png';
-import app201Image from '../../imports/n_201.png';
-import app202Image from '../../imports/n_202.png';
-import app203Image from '../../imports/n_203.png';
+import planSousSol from '../../imports/sous_sol_.png';
 import plan3emeEtage from '../../imports/3_eme_etage_.png';
 import app301Image from '../../imports/n_301.png';
 import app302Image from '../../imports/n302.png';
 import planRDC from '../../imports/rez_de_chaussez.png';
-import planSousSol from '../../imports/sous_sol_.png';
-import app201Image from '../../imports/n_201.png';
-import app202Image from '../../imports/n_202.png';
-import app203Image from '../../imports/n_203.png';
 
 export interface Apartment {
   id: string;
