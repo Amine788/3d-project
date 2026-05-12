@@ -77,7 +77,7 @@ const realFloors: Floor[] = [
         surface: 44,
         bedrooms: 0,
         price: 0,
-        available: true,
+        available: false,
         images: [planSousSol],
         position: { x: 50, y: 40 },
         color: 'blue'
@@ -89,7 +89,7 @@ const realFloors: Floor[] = [
         surface: 73,
         bedrooms: 0,
         price: 0,
-        available: true,
+        available: false,
         images: [planSousSol],
         position: { x: 50, y: 48 },
         color: 'blue'
@@ -101,7 +101,7 @@ const realFloors: Floor[] = [
         surface: 83,
         bedrooms: 0,
         price: 0,
-        available: true,
+        available: false,
         images: [planSousSol],
         position: { x: 50, y: 56 },
         color: 'blue'
@@ -121,7 +121,7 @@ const realFloors: Floor[] = [
         surface: 0,
         bedrooms: 0,
         price: 0,
-        available: true,
+        available: false,
         images: [planRDC],
         position: { x: 50, y: 40 },
         color: 'cyan'
@@ -133,7 +133,7 @@ const realFloors: Floor[] = [
         surface: 0,
         bedrooms: 0,
         price: 0,
-        available: true,
+        available: false,
         images: [planRDC],
         position: { x: 50, y: 48 },
         color: 'cyan'
@@ -145,7 +145,7 @@ const realFloors: Floor[] = [
         surface: 0,
         bedrooms: 0,
         price: 0,
-        available: true,
+        available: false,
         images: [planRDC],
         position: { x: 50, y: 56 },
         color: 'cyan'
@@ -165,7 +165,7 @@ const realFloors: Floor[] = [
         surface: 75,
         bedrooms: 2,
         price: 0,
-        available: true,
+        available: false,
         images: [app103Image, plan1erEtage],
         position: { x: 50, y: 38 },
         color: 'beige'
@@ -177,7 +177,7 @@ const realFloors: Floor[] = [
         surface: 90,
         bedrooms: 2,
         price: 0,
-        available: true,
+        available: false,
         images: [app101Image, plan1erEtage],
         position: { x: 24, y: 58 },
         color: 'pink'
@@ -189,7 +189,7 @@ const realFloors: Floor[] = [
         surface: 85,
         bedrooms: 2,
         price: 0,
-        available: true,
+        available: false,
         images: [app102Image, plan1erEtage],
         position: { x: 50, y: 58 },
         color: 'yellow'
@@ -209,7 +209,7 @@ const realFloors: Floor[] = [
         surface: 88,
         bedrooms: 2,
         price: 0,
-        available: true,
+        available: false,
         images: [app201Image, plan2emeEtage],
         position: { x: 24, y: 58 },
         color: 'beige'
@@ -221,7 +221,7 @@ const realFloors: Floor[] = [
         surface: 92,
         bedrooms: 3,
         price: 0,
-        available: true,
+        available: false,
         images: [app202Image, plan2emeEtage],
         position: { x: 50, y: 58 },
         color: 'yellow'
@@ -233,7 +233,7 @@ const realFloors: Floor[] = [
         surface: 95,
         bedrooms: 3,
         price: 0,
-        available: true,
+        available: false,
         images: [app203Image, plan2emeEtage],
         position: { x: 50, y: 38 },
         color: 'pink'
@@ -265,7 +265,7 @@ const realFloors: Floor[] = [
         surface: 88,
         bedrooms: 2,
         price: 0,
-        available: true,
+        available: false,
         images: [app302Image, plan3emeEtage],
         position: { x: 65, y: 40 },
         color: 'pink'
