@@ -58,6 +58,7 @@ export default function BuildingViewer() {
         </div>
 
         {floor.apartments.map((apartment, index) => {
+          const isSold = !apartment.available;
           return (
             <motion.button
               key={apartment.id}
@@ -75,64 +76,55 @@ export default function BuildingViewer() {
               }}
             >
               <div className="relative">
-                <motion.div
-                  animate={{
-                    scale: [1, 1.3, 1],
-                    opacity: [0.2, 0.4, 0.2],
-                  }}
-                  transition={{
-                    duration: 2.5,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                    delay: index * 0.3,
-                  }}
-                  className="absolute inset-0 rounded-xl blur-2xl bg-amber-400 -z-10"
-                  style={{
-                    width: '80px',
-                    height: '80px',
-                    left: '50%',
-                    top: '50%',
-                    transform: 'translate(-50%, -50%)',
-                  }}
-                />
+                {/* Glow effect - only for available */}
+                {!isSold && (
+                  <motion.div
+                    animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.4, 0.2] }}
+                    transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut', delay: index * 0.3 }}
+                    className="absolute inset-0 rounded-xl blur-2xl bg-green-400 -z-10"
+                    style={{ width: '80px', height: '80px', left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }}
+                  />
+                )}
 
                 <motion.div
-                  whileHover={{
-                    scale: 1.1,
-                    boxShadow: '0 0 40px rgba(251, 191, 36, 0.4)',
-                  }}
-                  className="relative size-8 sm:size-12 rounded-full flex flex-col items-center justify-center border border-white/40 bg-slate-950/80 backdrop-blur-md shadow-2xl group-hover:border-amber-400 transition-all"
+                  whileHover={{ scale: 1.1 }}
+                  className={`relative size-8 sm:size-12 rounded-full flex flex-col items-center justify-center border backdrop-blur-md shadow-2xl transition-all ${
+                    isSold
+                      ? 'bg-red-900/80 border-red-500/60 group-hover:border-red-400'
+                      : 'bg-slate-950/80 border-green-400/60 group-hover:border-green-400'
+                  }`}
                 >
-                  <span className="text-[7px] sm:text-[9px] font-medium text-amber-400/80 uppercase tracking-tighter">
-                    APP
+                  <span className={`text-[7px] sm:text-[9px] font-bold uppercase tracking-tighter ${
+                    isSold ? 'text-red-400' : 'text-green-400'
+                  }`}>
+                    {isSold ? 'VENDU' : 'DISPO'}
                   </span>
-                  <span className="text-xs sm:text-base font-bold text-white">
+                  <span className="text-xs sm:text-sm font-bold text-white">
                     {apartment.number}
                   </span>
 
-                  <motion.div
-                    className="absolute -inset-1 rounded-full border border-amber-400/20"
-                    animate={{
-                      scale: [1, 1.2, 1],
-                      opacity: [0.5, 0, 0.5],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: 'easeInOut',
-                    }}
-                  />
+                  {!isSold && (
+                    <motion.div
+                      className="absolute -inset-1 rounded-full border border-green-400/40"
+                      animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0, 0.5] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                    />
+                  )}
                 </motion.div>
 
+                {/* Tooltip on hover */}
                 <motion.div
                   initial={{ opacity: 0, y: 10, scale: 0.8 }}
                   whileHover={{ opacity: 1, y: 0, scale: 1 }}
                   className="absolute top-full left-1/2 -translate-x-1/2 mt-3 whitespace-nowrap bg-slate-900/95 backdrop-blur-2xl px-4 py-2.5 rounded-2xl border border-white/10 pointer-events-none shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-20"
                 >
                   <div className="flex items-center gap-2 mb-1">
-                    <div className="size-2 rounded-full bg-green-500 animate-pulse" />
-                    <p className="text-xs text-amber-400 font-bold tracking-wider uppercase">Appartement {apartment.number}</p>
+                    <div className={`size-2 rounded-full ${isSold ? 'bg-red-500' : 'bg-green-500 animate-pulse'}`} />
+                    <p className={`text-xs font-bold tracking-wider uppercase ${isSold ? 'text-red-400' : 'text-green-400'}`}>
+                      {isSold ? 'Vendu' : 'Disponible'}
+                    </p>
                   </div>
+                  <p className="text-xs text-amber-400 font-bold tracking-wider uppercase mb-1">Appartement {apartment.number}</p>
                   <div className="flex items-center gap-3">
                     <p className="text-sm text-white font-medium">{apartment.surface} m²</p>
                     <div className="w-px h-3 bg-white/20" />
@@ -150,10 +142,22 @@ export default function BuildingViewer() {
         animate={{ opacity: 1, y: 0 }}
         className="absolute top-8 left-1/2 -translate-x-1/2 bg-slate-950/90 backdrop-blur-xl px-6 py-3 rounded-full border border-amber-400/30 shadow-xl"
       >
-        <p className="text-sm text-white font-light tracking-wider">
-          {floor.displayName} • <span className="text-amber-400 font-medium">
-            {floor.apartments.filter((a) => a.available).length}
-          </span> disponible{floor.apartments.filter((a) => a.available).length > 1 ? 's' : ''}
+        <p className="text-sm text-white font-light tracking-wider flex items-center gap-3">
+          {floor.displayName}
+          <span className="flex items-center gap-1.5">
+            <span className="size-2 rounded-full bg-green-500 inline-block" />
+            <span className="text-green-400 font-medium">
+              {floor.apartments.filter((a) => a.available).length} disponible{floor.apartments.filter((a) => a.available).length > 1 ? 's' : ''}
+            </span>
+          </span>
+          {floor.apartments.filter((a) => !a.available).length > 0 && (
+            <span className="flex items-center gap-1.5">
+              <span className="size-2 rounded-full bg-red-500 inline-block" />
+              <span className="text-red-400 font-medium">
+                {floor.apartments.filter((a) => !a.available).length} vendu{floor.apartments.filter((a) => !a.available).length > 1 ? 's' : ''}
+              </span>
+            </span>
+          )}
         </p>
       </motion.div>
     </div>
