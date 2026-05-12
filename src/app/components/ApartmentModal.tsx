@@ -46,8 +46,12 @@ export default function ApartmentModal() {
                 <h2 className="text-2xl sm:text-3xl font-light text-white">
                   Appartement <span className="text-amber-400">{selectedApartment.number}</span>
                 </h2>
-                <p className="text-sm text-slate-400 mt-1">
-                  {selectedApartment.available ? 'Disponible' : 'Réservé'}
+                <p className={`text-sm font-bold mt-1 px-3 py-0.5 rounded-full inline-block ${
+                  selectedApartment.available 
+                    ? 'text-green-400 bg-green-400/10 border border-green-400/20' 
+                    : 'text-red-400 bg-red-400/10 border border-red-400/20'
+                }`}>
+                  {selectedApartment.available ? '• Disponible' : '• Vendu'}
                 </p>
               </div>
               <motion.button
@@ -250,7 +254,7 @@ export default function ApartmentModal() {
               </AnimatePresence>
             </div>
 
-            {selectedApartment.available && (
+            {selectedApartment.available ? (
               <div className="p-6 border-t border-white/10 bg-slate-950/50">
                 <motion.button
                   whileHover={{ scale: 1.02 }}
@@ -259,6 +263,12 @@ export default function ApartmentModal() {
                 >
                   Réserver cet appartement
                 </motion.button>
+              </div>
+            ) : (
+              <div className="p-6 border-t border-white/10 bg-red-950/20">
+                <div className="w-full bg-red-900/40 text-red-400 px-8 py-4 rounded-xl font-bold text-center border border-red-500/30">
+                  Cet appartement a déjà été vendu
+                </div>
               </div>
             )}
           </div>
