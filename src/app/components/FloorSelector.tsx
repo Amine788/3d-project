@@ -55,14 +55,14 @@ export default function FloorSelector() {
                   />
                 )}
 
-                {floor.apartments.length > 0 && (
+                {floor.apartments.some(a => a.available) && (
                   <span
                     className={`
                       ml-auto flex items-center justify-center min-w-[18px] h-4.5 px-1 rounded-full text-[10px] sm:text-xs font-bold
-                      ${isActive ? 'bg-slate-950 text-amber-400' : 'bg-amber-400 text-slate-950'}
+                      ${isActive ? 'bg-slate-950 text-amber-400' : 'bg-green-500 text-white'}
                     `}
                   >
-                    {floor.apartments.length}
+                    {floor.apartments.filter(a => a.available).length}
                   </span>
                 )}
               </motion.button>
