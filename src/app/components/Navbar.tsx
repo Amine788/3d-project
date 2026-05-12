@@ -1,10 +1,12 @@
 import { motion } from 'motion/react';
-import { Phone, Menu, MapPin } from 'lucide-react';
+import { Phone, Menu, MapPin, RotateCcw } from 'lucide-react';
 import { useState } from 'react';
+import { useRealEstateStore } from '../store/useRealEstateStore';
 import logoHBA from '../../imports/image-removebg-preview.png';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { setCurrentView } = useRealEstateStore();
 
   return (
     <motion.nav
@@ -43,6 +45,15 @@ export default function Navbar() {
               <MapPin className="size-4" />
               <span className="text-sm font-medium">Localisation</span>
             </motion.a>
+            <motion.button
+              onClick={() => setCurrentView('virtual-visit')}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-full transition-colors border border-white/20"
+            >
+              <RotateCcw className="size-4" />
+              <span className="text-sm font-medium">Visite Virtuelle</span>
+            </motion.button>
             <motion.a
               href="tel:+212636232187"
               whileHover={{ scale: 1.05 }}
@@ -80,6 +91,16 @@ export default function Navbar() {
               <MapPin className="size-4" />
               <span className="text-sm font-medium">Localisation</span>
             </a>
+            <button
+              onClick={() => {
+                setCurrentView('virtual-visit');
+                setIsOpen(false);
+              }}
+              className="w-full flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full transition-colors border border-white/20"
+            >
+              <RotateCcw className="size-4" />
+              <span className="text-sm font-medium">Visite Virtuelle</span>
+            </button>
             <a
               href="tel:+212636232187"
               className="w-full flex items-center justify-center gap-2 bg-amber-400 text-slate-950 px-6 py-3 rounded-full hover:bg-amber-500 transition-colors"

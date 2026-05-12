@@ -41,7 +41,7 @@ export interface Floor {
 }
 
 interface RealEstateState {
-  currentView: 'facade' | 'floor';
+  currentView: 'facade' | 'floor' | 'virtual-visit';
   currentFloor: string | null;
   selectedApartment: Apartment | null;
   isLoading: boolean;

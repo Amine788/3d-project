@@ -8,6 +8,7 @@ import FacadeViewer from './components/FacadeViewer';
 import FloorSelector from './components/FloorSelector';
 import ApartmentPhotoViewer from './components/ApartmentPhotoViewer';
 import ContactSection from './components/ContactSection';
+import VirtualVisit from './components/VirtualVisit';
 import { AnimatePresence } from 'motion/react';
 
 export default function App() {
@@ -33,14 +34,13 @@ export default function App() {
             <AnimatePresence mode="wait">
               {showHero ? (
                 <HeroSection key="hero" />
+              ) : currentView === 'virtual-visit' ? (
+                <VirtualVisit key="virtual" />
               ) : (
                 <div key="viewer" className="h-full pt-20">
                   <FloorSelector />
-                  {currentView === 'facade' ? (
-                    <FacadeViewer key="facade" />
-                  ) : (
-                    <BuildingViewer key="floor" />
-                  )}
+                  {currentView === 'facade' && <FacadeViewer key="facade" />}
+                  {currentView === 'floor' && <BuildingViewer key="floor" />}
                   <ContactSection />
                 </div>
               )}
