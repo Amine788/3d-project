@@ -3,9 +3,8 @@ import { useRealEstateStore } from './store/useRealEstateStore';
 import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
-import BuildingViewer from './components/BuildingViewer';
+import ApartmentTypesGrid from './components/ApartmentTypesGrid';
 import FacadeViewer from './components/FacadeViewer';
-import FloorSelector from './components/FloorSelector';
 import ApartmentPhotoViewer from './components/ApartmentPhotoViewer';
 import ContactSection from './components/ContactSection';
 import VirtualVisit from './components/VirtualVisit';
@@ -38,9 +37,8 @@ export default function App() {
                 <VirtualVisit key="virtual" />
               ) : (
                 <div key="viewer" className="h-full pt-20">
-                  <FloorSelector />
                   {currentView === 'facade' && <FacadeViewer key="facade" />}
-                  {currentView === 'floor' && <BuildingViewer key="floor" />}
+                  {currentView === 'types' && <ApartmentTypesGrid key="types" />}
                   <ContactSection />
                 </div>
               )}

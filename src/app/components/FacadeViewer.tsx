@@ -2,10 +2,10 @@ import { motion } from 'motion/react';
 import { useRealEstateStore } from '../store/useRealEstateStore';
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Home } from 'lucide-react';
 
 export default function FacadeViewer() {
-  const { facadeImages, setCurrentFloor } = useRealEstateStore();
+  const { facadeImages, setCurrentView } = useRealEstateStore();
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -65,50 +65,21 @@ export default function FacadeViewer() {
           />
 
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-slate-950/20 pointer-events-none" />
-
-          {/* Boutons d'étages sur la façade */}
-          <div className="absolute inset-0">
-            {[
-              { id: 'r+3', label: 'R+3', top: '28%', mobileTop: '41%', delay: 0.5 },
-              { id: 'r+2', label: 'R+2', top: '44%', mobileTop: '47%', delay: 0.6 },
-              { id: 'r+1', label: 'R+1', top: '60%', mobileTop: '53%', delay: 0.7 },
-              { id: 'rdc', label: 'RDC', top: '76%', mobileTop: '59%', delay: 0.8 },
-              { id: 'sous-sol', label: 'S-SOL', top: '88%', mobileTop: '65%', delay: 0.9 },
-            ].map((btn) => (
-              <motion.button
-                key={btn.id}
-                initial={{ scale: 0, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ delay: btn.delay }}
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.9 }}
-                onClick={() => setCurrentFloor(btn.id)}
-                className="absolute group left-1/2 -translate-x-1/2"
-                style={{
-                  top: window.innerWidth < 640 ? btn.mobileTop : btn.top,
-                }}
-              >
-                <motion.div
-                  animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.3, 0.5, 0.3],
-                  }}
-                  transition={{
-                    duration: 2.5,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                    delay: btn.delay,
-                  }}
-                  className="absolute inset-0 rounded-lg blur-xl bg-slate-950 -z-10"
-                />
-                <div className="px-3 py-1 rounded-lg bg-slate-950 border border-white/40 flex items-center justify-center shadow-xl backdrop-blur-sm">
-                  <span className="text-white font-bold text-[10px] sm:text-xs">{btn.label}</span>
-                </div>
-              </motion.button>
-            ))}
-          </div>
         </div>
       </div>
+
+      <motion.button
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.6, type: 'spring', stiffness: 200 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={() => setCurrentView('types')}
+        className="absolute bottom-24 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 bg-amber-400 hover:bg-amber-500 text-slate-950 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold shadow-2xl shadow-amber-400/40 transition-colors"
+      >
+        <Home className="size-5" />
+        <span>Découvrir nos logements</span>
+      </motion.button>
 
       {facadeImages.length > 1 && (
         <>
@@ -188,7 +159,7 @@ export default function FacadeViewer() {
         transition={{ delay: 0.3 }}
       >
         <p className="text-xs text-slate-400 mb-1">Projet</p>
-        <p className="text-sm text-amber-400 font-medium">HAY SALAM</p>
+        <p className="text-sm text-amber-400 font-medium">CASABLANCA</p>
       </motion.div>
     </div>
   );

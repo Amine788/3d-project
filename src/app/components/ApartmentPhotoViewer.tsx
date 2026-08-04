@@ -72,19 +72,11 @@ export default function ApartmentPhotoViewer() {
           className="fixed top-8 left-8 z-50 bg-slate-900/90 backdrop-blur-xl px-6 py-4 rounded-2xl border border-amber-400/30 shadow-2xl"
         >
           <h2 className="text-2xl font-light text-white">
-            Appartement <span className="text-amber-400 font-bold">{selectedApartment.number}</span>
+            <span className="text-amber-400 font-bold">{selectedApartment.name}</span>
           </h2>
-          <div className="flex items-center gap-3 mt-1">
-            <p className="text-sm text-slate-400">
-              {selectedApartment.surface}m² • {selectedApartment.bedrooms} chambres
-            </p>
-            <div className="w-px h-3 bg-white/20" />
-            <span className={`text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${
-              selectedApartment.available ? 'text-green-400 bg-green-400/10' : 'text-red-400 bg-red-400/10'
-            }`}>
-              {selectedApartment.available ? 'Disponible' : 'Vendu'}
-            </span>
-          </div>
+          <span className="text-[10px] font-bold uppercase tracking-widest text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded mt-1 inline-block">
+            {selectedApartment.category === 'studio' ? 'Studio' : 'Appartement'}
+          </span>
         </motion.div>
 
         <div
@@ -105,7 +97,7 @@ export default function ApartmentPhotoViewer() {
             >
               <img
                 src={selectedApartment.images[currentImageIndex]}
-                alt={`Appartement ${selectedApartment.number} - Vue ${currentImageIndex + 1}`}
+                alt={`${selectedApartment.name} - Vue ${currentImageIndex + 1}`}
                 className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl"
                 style={{
                   transformStyle: 'preserve-3d',

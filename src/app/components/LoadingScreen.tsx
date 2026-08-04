@@ -31,7 +31,7 @@ export default function LoadingScreen() {
           className="space-y-4"
         >
           <h2 className="text-2xl font-bold tracking-wider text-slate-900" style={{ color: '#B4955E' }}>
-            HAY SALAM
+            CASABLANCA
           </h2>
           <div className="flex gap-1.5 justify-center">
             {[0, 1, 2].map((i) => (

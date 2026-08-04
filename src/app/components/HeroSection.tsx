@@ -122,7 +122,7 @@ export default function HeroSection() {
 
           <div className="space-y-4">
             <h1 className="text-4xl sm:text-7xl lg:text-8xl font-bold tracking-wider text-slate-900" style={{ color: '#B4955E' }}>
-              HAY SALAM
+              CASABLANCA
             </h1>
             <p className="text-base sm:text-xl text-slate-800 max-w-2xl mx-auto font-light px-4">
               Découvrez une expérience de vie exceptionnelle dans un cadre moderne et élégant
@@ -149,7 +149,7 @@ export default function HeroSection() {
                 transition={{ duration: 0.3 }}
               />
               <span className="relative z-10 text-lg font-semibold text-white">
-                Explorer HAY SALAM
+                Explorer CASABLANCA
               </span>
               <ChevronDown className="relative z-10 size-5 group-hover:animate-bounce text-white" />
             </motion.button>

@@ -35,7 +35,7 @@ export default function ContactSection() {
               className="px-4 pb-6 sm:px-6 sm:pb-6 space-y-3 overflow-hidden"
             >
               <motion.a
-                href="https://maps.app.goo.gl/HnAcHVz3pdQyHg2j9"
+                href="https://www.google.com/maps/search/?api=1&query=Casablanca,Maroc"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, x: 5 }}

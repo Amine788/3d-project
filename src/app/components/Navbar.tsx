@@ -27,7 +27,7 @@ export default function Navbar() {
             />
             <div>
               <h1 className="text-xl font-bold tracking-wider text-white">
-                HAY SALAM
+                CASABLANCA
               </h1>
               <p className="text-xs text-slate-400">promotion immobilière</p>
             </div>
@@ -35,7 +35,7 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center gap-4">
             <motion.a
-              href="https://maps.app.goo.gl/HnAcHVz3pdQyHg2j9"
+              href="https://www.google.com/maps/search/?api=1&query=Casablanca,Maroc"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
@@ -83,7 +83,7 @@ export default function Navbar() {
         >
           <div className="px-4 py-6 space-y-3">
             <a
-              href="https://maps.app.goo.gl/HnAcHVz3pdQyHg2j9"
+              href="https://www.google.com/maps/search/?api=1&query=Casablanca,Maroc"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full transition-colors border border-white/20"
