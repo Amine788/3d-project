@@ -111,6 +111,7 @@ const facadeApartments: ApartmentType[] = [
     images: [appartement1A, appartement1B],
     status: 'disponible',
     floor: 2,
+    surface: 73,
   },
   {
     id: 'P202',
@@ -119,6 +120,7 @@ const facadeApartments: ApartmentType[] = [
     images: [appartement2A, appartement2B],
     status: 'disponible',
     floor: 2,
+    surface: 83,
   },
   {
     id: 'P301',
@@ -127,6 +129,7 @@ const facadeApartments: ApartmentType[] = [
     images: [appartement1A, appartement1B],
     status: 'disponible',
     floor: 3,
+    surface: 73,
   },
   {
     id: 'P302',
@@ -135,6 +138,7 @@ const facadeApartments: ApartmentType[] = [
     images: [appartement2A, appartement2B],
     status: 'disponible',
     floor: 3,
+    surface: 83,
   },
 ];
 
