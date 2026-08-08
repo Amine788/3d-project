@@ -25,12 +25,31 @@ const FACADE_MARKER_POSITIONS: Record<number, Record<string, { top: string; left
   },
 };
 
+// Etage 4 (studios) : studio-1/2 uniquement sur la facade principale (index 0),
+// studio-3/4 uniquement sur la facade arriere (index 1).
+const FACADE_STUDIO_POSITIONS: Record<number, Record<string, { top: string; left: string }>> = {
+  0: {
+    'studio-1': { top: '16%', left: '23%' },
+    'studio-2': { top: '16%', left: '77%' },
+  },
+  1: {
+    'studio-3': { top: '20%', left: '23%' },
+    'studio-4': { top: '20%', left: '77%' },
+  },
+};
+
 export default function FacadeViewer() {
-  const { facadeImages, facadeApartments, setSelectedApartment, setCurrentView } = useRealEstateStore();
+  const { facadeImages, facadeApartments, apartmentTypes, setSelectedApartment, setCurrentView } =
+    useRealEstateStore();
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const markerPositions = FACADE_MARKER_POSITIONS[currentImageIndex] ?? {};
+  const markerPositions = {
+    ...(FACADE_MARKER_POSITIONS[currentImageIndex] ?? {}),
+    ...(FACADE_STUDIO_POSITIONS[currentImageIndex] ?? {}),
+  };
+  const studios = apartmentTypes.filter((a) => a.category === 'studio');
+  const facadeMarkerItems = [...facadeApartments, ...studios];
 
   useEffect(() => {
     if (imageRef.current) {
@@ -88,7 +107,7 @@ export default function FacadeViewer() {
 
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-slate-950/20 pointer-events-none" />
 
-          {facadeApartments.map((apt) => {
+          {facadeMarkerItems.map((apt) => {
             const pos = markerPositions[apt.id];
             if (!pos) return null;
             return (
