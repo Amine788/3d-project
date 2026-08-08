@@ -74,9 +74,20 @@ export default function ApartmentPhotoViewer() {
           <h2 className="text-2xl font-light text-white">
             <span className="text-amber-400 font-bold">{selectedApartment.name}</span>
           </h2>
-          <span className="text-[10px] font-bold uppercase tracking-widest text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded mt-1 inline-block">
-            {selectedApartment.category === 'studio' ? 'Studio' : 'Appartement'}
-          </span>
+          <div className="flex items-center gap-2 mt-1">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded inline-block">
+              {selectedApartment.category === 'studio' ? 'Studio' : 'Appartement'}
+            </span>
+            <span
+              className={`text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded inline-block ${
+                selectedApartment.status === 'disponible'
+                  ? 'text-emerald-950 bg-emerald-400'
+                  : 'text-red-950 bg-red-400'
+              }`}
+            >
+              {selectedApartment.status === 'disponible' ? 'Disponible' : 'Vendu'}
+            </span>
+          </div>
         </motion.div>
 
         <div

@@ -19,6 +19,7 @@ export interface ApartmentType {
   name: string;
   category: 'appartement' | 'studio';
   images: string[];
+  status: 'disponible' | 'vendu';
 }
 
 interface RealEstateState {
@@ -41,36 +42,42 @@ const apartmentTypes: ApartmentType[] = [
     name: 'Appartement 1',
     category: 'appartement',
     images: [appartement1A, appartement1B],
+    status: 'disponible',
   },
   {
     id: 'appartement-2',
     name: 'Appartement 2',
     category: 'appartement',
     images: [appartement2A, appartement2B],
+    status: 'disponible',
   },
   {
     id: 'studio-1',
     name: 'Studio 1',
     category: 'studio',
     images: [studio1A, studio1B],
+    status: 'disponible',
   },
   {
     id: 'studio-2',
     name: 'Studio 2',
     category: 'studio',
     images: [studio2A, studio2B],
+    status: 'disponible',
   },
   {
     id: 'studio-3',
     name: 'Studio 3',
     category: 'studio',
     images: [studio3A, studio3B],
+    status: 'disponible',
   },
   {
     id: 'studio-4',
     name: 'Studio 4',
     category: 'studio',
     images: [studio4A, studio4B],
+    status: 'disponible',
   },
 ];
 

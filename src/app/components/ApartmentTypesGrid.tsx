@@ -68,6 +68,18 @@ export default function ApartmentTypesGrid() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/10 to-transparent" />
                 </div>
 
+                <div className="absolute top-3 right-3">
+                  <span
+                    className={`text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full ${
+                      type.status === 'disponible'
+                        ? 'bg-emerald-400/90 text-emerald-950'
+                        : 'bg-red-400/90 text-red-950'
+                    }`}
+                  >
+                    {type.status === 'disponible' ? 'Disponible' : 'Vendu'}
+                  </span>
+                </div>
+
                 <div className="absolute bottom-0 left-0 right-0 p-5 flex items-center justify-between">
                   <div>
                     <p className="text-white text-lg font-medium">{type.name}</p>
