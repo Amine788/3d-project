@@ -20,6 +20,8 @@ export interface ApartmentType {
   category: 'appartement' | 'studio';
   images: string[];
   status: 'disponible' | 'vendu';
+  floor?: number;
+  surface?: number;
 }
 
 interface RealEstateState {
@@ -28,6 +30,7 @@ interface RealEstateState {
   isLoading: boolean;
   showHero: boolean;
   apartmentTypes: ApartmentType[];
+  facadeApartments: ApartmentType[];
   facadeImages: string[];
   setCurrentView: (view: 'facade' | 'types' | 'virtual-visit') => void;
   setSelectedApartment: (apartment: ApartmentType | null) => void;
@@ -81,12 +84,67 @@ const apartmentTypes: ApartmentType[] = [
   },
 ];
 
+// Appartements numerotes positionnes sur les facades (PR et ARR)
+const facadeApartments: ApartmentType[] = [
+  {
+    id: 'P101',
+    name: 'P101',
+    category: 'appartement',
+    images: [appartement1A, appartement1B],
+    status: 'disponible',
+    floor: 1,
+    surface: 73,
+  },
+  {
+    id: 'P102',
+    name: 'P102',
+    category: 'appartement',
+    images: [appartement2A, appartement2B],
+    status: 'disponible',
+    floor: 1,
+    surface: 83,
+  },
+  {
+    id: 'P201',
+    name: 'P201',
+    category: 'appartement',
+    images: [appartement1A, appartement1B],
+    status: 'disponible',
+    floor: 2,
+  },
+  {
+    id: 'P202',
+    name: 'P202',
+    category: 'appartement',
+    images: [appartement2A, appartement2B],
+    status: 'disponible',
+    floor: 2,
+  },
+  {
+    id: 'P301',
+    name: 'P301',
+    category: 'appartement',
+    images: [appartement1A, appartement1B],
+    status: 'disponible',
+    floor: 3,
+  },
+  {
+    id: 'P302',
+    name: 'P302',
+    category: 'appartement',
+    images: [appartement2A, appartement2B],
+    status: 'disponible',
+    floor: 3,
+  },
+];
+
 export const useRealEstateStore = create<RealEstateState>((set) => ({
   currentView: 'facade',
   selectedApartment: null,
   isLoading: true,
   showHero: true,
   apartmentTypes,
+  facadeApartments,
   facadeImages: [facadePrincipale, facadeArriere],
   setCurrentView: (view) => set({ currentView: view }),
   setSelectedApartment: (apartment) => set({ selectedApartment: apartment }),

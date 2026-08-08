@@ -4,11 +4,33 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ChevronLeft, ChevronRight, Home } from 'lucide-react';
 
+// Position (en % de l'image carree) des boutons d'appartement par facade.
+// index 0 = facade principale, index 1 = facade arriere.
+const FACADE_MARKER_POSITIONS: Record<number, Record<string, { top: string; left: string }>> = {
+  0: {
+    P101: { top: '53%', left: '23%' },
+    P102: { top: '53%', left: '77%' },
+    P201: { top: '40%', left: '23%' },
+    P202: { top: '40%', left: '77%' },
+    P301: { top: '28%', left: '23%' },
+    P302: { top: '28%', left: '77%' },
+  },
+  1: {
+    P101: { top: '57%', left: '23%' },
+    P102: { top: '57%', left: '77%' },
+    P201: { top: '45%', left: '23%' },
+    P202: { top: '45%', left: '77%' },
+    P301: { top: '33%', left: '23%' },
+    P302: { top: '33%', left: '77%' },
+  },
+};
+
 export default function FacadeViewer() {
-  const { facadeImages, setCurrentView } = useRealEstateStore();
+  const { facadeImages, facadeApartments, setSelectedApartment, setCurrentView } = useRealEstateStore();
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const markerPositions = FACADE_MARKER_POSITIONS[currentImageIndex] ?? {};
 
   useEffect(() => {
     if (imageRef.current) {
@@ -55,16 +77,46 @@ export default function FacadeViewer() {
       />
 
       <div className="relative w-full h-full flex items-center justify-center">
-        <div className="relative w-full h-full">
+        <div className="relative aspect-square max-w-full max-h-full">
           <motion.img
             ref={imageRef}
             key={currentImageIndex}
             src={facadeImages[currentImageIndex]}
             alt="Façade du bâtiment"
-            className="w-full h-full object-contain"
+            className="w-full h-full object-cover"
           />
 
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-slate-950/20 pointer-events-none" />
+
+          {facadeApartments.map((apt) => {
+            const pos = markerPositions[apt.id];
+            if (!pos) return null;
+            return (
+              <motion.button
+                key={apt.id}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.4, type: 'spring', stiffness: 250 }}
+                whileHover={{ scale: 1.12 }}
+                whileTap={{ scale: 0.92 }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedApartment(apt);
+                }}
+                style={{ top: pos.top, left: pos.left }}
+                className="absolute z-10 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-0.5 bg-slate-950/85 backdrop-blur-md border border-amber-400/60 hover:border-amber-400 hover:bg-slate-900/95 rounded-lg px-2 py-1 shadow-lg transition-colors"
+              >
+                <span className="text-[10px] font-bold text-amber-400 leading-none whitespace-nowrap">
+                  {apt.name}
+                </span>
+                {apt.surface !== undefined && (
+                  <span className="text-[9px] text-white/80 leading-none whitespace-nowrap">
+                    {apt.surface} m²
+                  </span>
+                )}
+              </motion.button>
+            );
+          })}
         </div>
       </div>
 

@@ -87,6 +87,16 @@ export default function ApartmentPhotoViewer() {
             >
               {selectedApartment.status === 'disponible' ? 'Disponible' : 'Vendu'}
             </span>
+            {selectedApartment.floor !== undefined && (
+              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-300 bg-white/10 px-2 py-0.5 rounded inline-block">
+                Étage {selectedApartment.floor}
+              </span>
+            )}
+            {selectedApartment.surface !== undefined && (
+              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-300 bg-white/10 px-2 py-0.5 rounded inline-block">
+                {selectedApartment.surface} m²
+              </span>
+            )}
           </div>
         </motion.div>
 
