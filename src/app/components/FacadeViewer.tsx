@@ -8,20 +8,20 @@ import { ChevronLeft, ChevronRight, Home } from 'lucide-react';
 // index 0 = facade principale, index 1 = facade arriere.
 const FACADE_MARKER_POSITIONS: Record<number, Record<string, { top: string; left: string }>> = {
   0: {
-    P101: { top: '53%', left: '23%' },
-    P102: { top: '53%', left: '77%' },
-    P201: { top: '40%', left: '23%' },
-    P202: { top: '40%', left: '77%' },
-    P301: { top: '28%', left: '23%' },
-    P302: { top: '28%', left: '77%' },
+    P101: { top: '53%', left: '77%' },
+    P102: { top: '53%', left: '23%' },
+    P201: { top: '40%', left: '77%' },
+    P202: { top: '40%', left: '23%' },
+    P301: { top: '28%', left: '77%' },
+    P302: { top: '28%', left: '23%' },
   },
   1: {
-    P101: { top: '57%', left: '23%' },
-    P102: { top: '57%', left: '77%' },
-    P201: { top: '45%', left: '23%' },
-    P202: { top: '45%', left: '77%' },
-    P301: { top: '33%', left: '23%' },
-    P302: { top: '33%', left: '77%' },
+    P101: { top: '57%', left: '77%' },
+    P102: { top: '57%', left: '23%' },
+    P201: { top: '45%', left: '77%' },
+    P202: { top: '45%', left: '23%' },
+    P301: { top: '33%', left: '77%' },
+    P302: { top: '33%', left: '23%' },
   },
 };
 
@@ -29,17 +29,31 @@ const FACADE_MARKER_POSITIONS: Record<number, Record<string, { top: string; left
 // studio-3/4 uniquement sur la facade arriere (index 1).
 const FACADE_STUDIO_POSITIONS: Record<number, Record<string, { top: string; left: string }>> = {
   0: {
-    'studio-1': { top: '16%', left: '23%' },
-    'studio-2': { top: '16%', left: '77%' },
+    'studio-1': { top: '16%', left: '77%' },
+    'studio-2': { top: '16%', left: '23%' },
   },
   1: {
-    'studio-3': { top: '20%', left: '23%' },
-    'studio-4': { top: '20%', left: '77%' },
+    'studio-3': { top: '20%', left: '77%' },
+    'studio-4': { top: '20%', left: '23%' },
+  },
+};
+
+// Magasins RDC : 3 magasins bien positionnes sur les vitrines RDC de chaque facade
+const FACADE_MAGASIN_POSITIONS: Record<number, Record<string, { top: string; left: string }>> = {
+  0: {
+    'magasin-1': { top: '68%', left: '28%' },
+    'magasin-2': { top: '68%', left: '43%' },
+    'magasin-3': { top: '68%', left: '58%' },
+  },
+  1: {
+    'magasin-1': { top: '72%', left: '24%' },
+    'magasin-2': { top: '72%', left: '41%' },
+    'magasin-3': { top: '72%', left: '58%' },
   },
 };
 
 export default function FacadeViewer() {
-  const { facadeImages, facadeApartments, apartmentTypes, setSelectedApartment, setCurrentView } =
+  const { facadeImages, facadeApartments, facadeMagasins, apartmentTypes, setSelectedApartment, setCurrentView } =
     useRealEstateStore();
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
@@ -48,8 +62,10 @@ export default function FacadeViewer() {
     ...(FACADE_MARKER_POSITIONS[currentImageIndex] ?? {}),
     ...(FACADE_STUDIO_POSITIONS[currentImageIndex] ?? {}),
   };
+  const magasinPositions = FACADE_MAGASIN_POSITIONS[currentImageIndex] ?? {};
   const studios = apartmentTypes.filter((a) => a.category === 'studio');
   const facadeMarkerItems = [...facadeApartments, ...studios];
+  const facadeMagasinItems = facadeMagasins.filter((m) => magasinPositions[m.id]);
 
   useEffect(() => {
     if (imageRef.current) {
@@ -69,14 +85,7 @@ export default function FacadeViewer() {
     setCurrentImageIndex((prev) => (prev - 1 + facadeImages.length) % facadeImages.length);
   };
 
-  useEffect(() => {
-    if (facadeImages.length > 1) {
-      const interval = setInterval(() => {
-        setCurrentImageIndex((prev) => (prev + 1) % facadeImages.length);
-      }, 5000);
-      return () => clearInterval(interval);
-    }
-  }, [facadeImages.length]);
+
 
   return (
     <div
@@ -116,21 +125,51 @@ export default function FacadeViewer() {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.4, type: 'spring', stiffness: 250 }}
-                whileHover={{ scale: 1.12 }}
+                whileHover={{ scale: 1.15 }}
                 whileTap={{ scale: 0.92 }}
                 onClick={(e) => {
                   e.stopPropagation();
                   setSelectedApartment(apt);
                 }}
                 style={{ top: pos.top, left: pos.left }}
-                className="absolute z-10 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-0.5 bg-slate-950/85 backdrop-blur-md border border-amber-400/60 hover:border-amber-400 hover:bg-slate-900/95 rounded-lg px-2 py-1 shadow-lg transition-colors"
+                className="absolute z-10 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center bg-slate-950/90 backdrop-blur-md border border-amber-400/60 hover:border-amber-400 hover:bg-slate-900 rounded-md px-1.5 py-0.5 shadow-md transition-colors"
               >
-                <span className="text-[10px] font-bold text-amber-400 leading-none whitespace-nowrap">
+                <span className="text-[9px] font-bold text-amber-400 leading-tight whitespace-nowrap">
                   {apt.name}
                 </span>
-                {apt.surface !== undefined && (
-                  <span className="text-[9px] text-white/80 leading-none whitespace-nowrap">
-                    {apt.surface} m²
+                {(apt.surfaceLabel || apt.surface !== undefined) && (
+                  <span className="text-[8px] text-white/80 leading-none whitespace-nowrap">
+                    {apt.surfaceLabel ?? `${apt.surface} m²`}
+                  </span>
+                )}
+              </motion.button>
+            );
+          })}
+
+          {facadeMagasinItems.map((mag) => {
+            const pos = magasinPositions[mag.id];
+            if (!pos) return null;
+            return (
+              <motion.button
+                key={mag.id}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.5, type: 'spring', stiffness: 250 }}
+                whileHover={{ scale: 1.15 }}
+                whileTap={{ scale: 0.92 }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedApartment(mag);
+                }}
+                style={{ top: pos.top, left: pos.left }}
+                className="absolute z-10 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center bg-slate-950/90 backdrop-blur-md border border-emerald-400/60 hover:border-emerald-400 hover:bg-slate-900 rounded-md px-1.5 py-0.5 shadow-md transition-colors"
+              >
+                <span className="text-[9px] font-bold text-emerald-400 leading-tight whitespace-nowrap">
+                  {mag.name}
+                </span>
+                {(mag.surfaceLabel || mag.surface !== undefined) && (
+                  <span className="text-[8px] text-white/80 leading-tight whitespace-pre-line text-center">
+                    {mag.surfaceLabel ?? `${mag.surface} m²`}
                   </span>
                 )}
               </motion.button>

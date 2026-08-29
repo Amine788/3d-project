@@ -17,11 +17,12 @@ import studio4B from '../../imports/types/studio4-b.jpg';
 export interface ApartmentType {
   id: string;
   name: string;
-  category: 'appartement' | 'studio';
+  category: 'appartement' | 'studio' | 'magasin';
   images: string[];
   status: 'disponible' | 'vendu';
   floor?: number;
   surface?: number;
+  surfaceLabel?: string;
 }
 
 interface RealEstateState {
@@ -31,6 +32,7 @@ interface RealEstateState {
   showHero: boolean;
   apartmentTypes: ApartmentType[];
   facadeApartments: ApartmentType[];
+  facadeMagasins: ApartmentType[];
   facadeImages: string[];
   setCurrentView: (view: 'facade' | 'types' | 'virtual-visit') => void;
   setSelectedApartment: (apartment: ApartmentType | null) => void;
@@ -56,17 +58,19 @@ const apartmentTypes: ApartmentType[] = [
   },
   {
     id: 'studio-1',
-    name: 'Studio 1',
+    name: 'Studio 4',
     category: 'studio',
     images: [studio1A, studio1B],
     status: 'disponible',
+    surfaceLabel: '53 m² + 23 m² terrasse',
   },
   {
     id: 'studio-2',
-    name: 'Studio 2',
+    name: 'Studio 3',
     category: 'studio',
     images: [studio2A, studio2B],
     status: 'disponible',
+    surfaceLabel: '54 m² + 20 m² terrasse',
   },
   {
     id: 'studio-3',
@@ -93,7 +97,7 @@ const facadeApartments: ApartmentType[] = [
     images: [appartement1A, appartement1B],
     status: 'disponible',
     floor: 1,
-    surface: 73,
+    surface: 75,
   },
   {
     id: 'P102',
@@ -111,7 +115,7 @@ const facadeApartments: ApartmentType[] = [
     images: [appartement1A, appartement1B],
     status: 'disponible',
     floor: 2,
-    surface: 73,
+    surface: 75,
   },
   {
     id: 'P202',
@@ -129,7 +133,7 @@ const facadeApartments: ApartmentType[] = [
     images: [appartement1A, appartement1B],
     status: 'disponible',
     floor: 3,
-    surface: 73,
+    surface: 75,
   },
   {
     id: 'P302',
@@ -142,6 +146,37 @@ const facadeApartments: ApartmentType[] = [
   },
 ];
 
+// Magasins au rez-de-chaussee
+const facadeMagasins: ApartmentType[] = [
+  {
+    id: 'magasin-1',
+    name: 'Magasin 1',
+    category: 'magasin',
+    images: [],
+    status: 'disponible',
+    floor: 0,
+    surfaceLabel: '21 m² mezz.\n+ 43 m² garage',
+  },
+  {
+    id: 'magasin-2',
+    name: 'Magasin 2',
+    category: 'magasin',
+    images: [],
+    status: 'disponible',
+    floor: 0,
+    surfaceLabel: '21 m² mezz.\n+ 43 m² garage',
+  },
+  {
+    id: 'magasin-3',
+    name: 'Magasin 3',
+    category: 'magasin',
+    images: [],
+    status: 'disponible',
+    floor: 0,
+    surfaceLabel: '21 m² mezz.\n+ 43 m² garage',
+  },
+];
+
 export const useRealEstateStore = create<RealEstateState>((set) => ({
   currentView: 'facade',
   selectedApartment: null,
@@ -149,6 +184,7 @@ export const useRealEstateStore = create<RealEstateState>((set) => ({
   showHero: true,
   apartmentTypes,
   facadeApartments,
+  facadeMagasins,
   facadeImages: [facadePrincipale, facadeArriere],
   setCurrentView: (view) => set({ currentView: view }),
   setSelectedApartment: (apartment) => set({ selectedApartment: apartment }),

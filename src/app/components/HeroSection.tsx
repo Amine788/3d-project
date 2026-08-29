@@ -1,12 +1,12 @@
 import { motion, useMotionValue, useTransform } from 'motion/react';
-import { ChevronDown, RotateCcw } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { useRealEstateStore } from '../store/useRealEstateStore';
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import logoHBA from '../../imports/image-removebg-preview.png';
 
 export default function HeroSection() {
-  const { setShowHero, setCurrentView } = useRealEstateStore();
+  const { setShowHero } = useRealEstateStore();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -129,7 +129,7 @@ export default function HeroSection() {
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex items-center justify-center">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -152,19 +152,6 @@ export default function HeroSection() {
                 Explorer CASABLANCA
               </span>
               <ChevronDown className="relative z-10 size-5 group-hover:animate-bounce text-white" />
-            </motion.button>
-
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => {
-                setShowHero(false);
-                setCurrentView('virtual-visit');
-              }}
-              className="group inline-flex items-center gap-3 px-10 py-4 rounded-full border-2 border-[#B4955E] text-[#B4955E] hover:bg-[#B4955E] hover:text-white transition-all duration-300 w-full sm:w-auto justify-center"
-            >
-              <RotateCcw className="size-5 group-hover:rotate-180 transition-transform duration-700" />
-              <span className="text-lg font-semibold">Visite Virtuelle</span>
             </motion.button>
           </div>
         </motion.div>

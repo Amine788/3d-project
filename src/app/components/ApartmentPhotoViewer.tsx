@@ -89,19 +89,19 @@ export default function ApartmentPhotoViewer() {
             </span>
             {selectedApartment.floor !== undefined && (
               <span className="text-[10px] font-bold uppercase tracking-widest text-slate-300 bg-white/10 px-2 py-0.5 rounded inline-block">
-                Étage {selectedApartment.floor}
+                {selectedApartment.floor === 0 ? 'Rez-de-chaussée' : `Étage ${selectedApartment.floor}`}
               </span>
             )}
-            {selectedApartment.surface !== undefined && (
-              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-300 bg-white/10 px-2 py-0.5 rounded inline-block">
-                {selectedApartment.surface} m²
+            {(selectedApartment.surfaceLabel || selectedApartment.surface !== undefined) && (
+              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-300 bg-white/10 px-2 py-0.5 rounded inline-block whitespace-pre-line text-center">
+                {selectedApartment.surfaceLabel ?? `${selectedApartment.surface} m²`}
               </span>
             )}
           </div>
         </motion.div>
 
         <div
-          className="relative h-full w-full flex items-center justify-center p-20"
+          className="relative h-full w-full flex items-center justify-center p-8 sm:p-20"
           onClick={(e) => e.stopPropagation()}
         >
           <AnimatePresence mode="wait">
@@ -116,22 +116,37 @@ export default function ApartmentPhotoViewer() {
                 perspective: '2000px',
               }}
             >
-              <img
-                src={selectedApartment.images[currentImageIndex]}
-                alt={`${selectedApartment.name} - Vue ${currentImageIndex + 1}`}
-                className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl"
-                style={{
-                  transformStyle: 'preserve-3d',
-                }}
-              />
+              {selectedApartment.images.length > 0 ? (
+                <img
+                  src={selectedApartment.images[currentImageIndex]}
+                  alt={`${selectedApartment.name} - Vue ${currentImageIndex + 1}`}
+                  className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl"
+                  style={{
+                    transformStyle: 'preserve-3d',
+                  }}
+                />
+              ) : (
+                <div className="bg-slate-900/90 border border-emerald-400/30 rounded-2xl p-8 sm:p-12 text-center max-w-md shadow-2xl backdrop-blur-xl space-y-4">
+                  <div className="size-16 rounded-full bg-emerald-400/10 border border-emerald-400/40 flex items-center justify-center mx-auto text-emerald-400 font-bold text-xl">
+                    {selectedApartment.name}
+                  </div>
+                  <h4 className="text-xl font-bold text-white">{selectedApartment.name} - Commercial</h4>
+                  <p className="text-sm text-emerald-400 font-medium whitespace-pre-line">
+                    {selectedApartment.surfaceLabel}
+                  </p>
+                  <p className="text-xs text-slate-400">
+                    Local commercial idéalement situé en rez-de-chaussée avec vitrine sur rue.
+                  </p>
+                </div>
+              )}
 
               <motion.div
                 className="absolute inset-0 pointer-events-none rounded-2xl"
                 animate={{
                   boxShadow: [
-                    '0 0 60px rgba(251, 191, 36, 0.3)',
-                    '0 0 100px rgba(251, 191, 36, 0.5)',
-                    '0 0 60px rgba(251, 191, 36, 0.3)',
+                    '0 0 60px rgba(16, 185, 129, 0.2)',
+                    '0 0 100px rgba(16, 185, 129, 0.4)',
+                    '0 0 60px rgba(16, 185, 129, 0.2)',
                   ],
                 }}
                 transition={{ duration: 3, repeat: Infinity }}
