@@ -60,11 +60,11 @@ const apartmentTypes: ApartmentType[] = [
   },
   {
     id: 'studio-1',
-    name: 'Studio 4',
+    name: 'Studio 1',
     category: 'studio',
     images: [studio1A, studio1B],
     status: 'disponible',
-    surfaceLabel: '53 m² + 23 m² terrasse',
+    surfaceLabel: '57 m² + 20 m² terrasse',
   },
   {
     id: 'studio-2',
