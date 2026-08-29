@@ -211,7 +211,7 @@ const facadeMagasins: ApartmentType[] = [
     images: [],
     status: 'disponible',
     floor: 0,
-    surfaceLabel: '21 m² mezz.\n+ 43 m² garage',
+    surfaceLabel: '16 m² mezz.\n+ 33 m² garage',
   },
   {
     id: 'magasin-2',
@@ -220,7 +220,7 @@ const facadeMagasins: ApartmentType[] = [
     images: [],
     status: 'disponible',
     floor: 0,
-    surfaceLabel: '21 m² mezz.\n+ 43 m² garage',
+    surfaceLabel: '16 m² mezz.\n+ 33 m² garage',
   },
   {
     id: 'magasin-3',
@@ -229,7 +229,16 @@ const facadeMagasins: ApartmentType[] = [
     images: [],
     status: 'disponible',
     floor: 0,
-    surfaceLabel: '21 m² mezz.\n+ 43 m² garage',
+    surfaceLabel: '16 m² mezz.\n+ 33 m² garage',
+  },
+  {
+    id: 'magasin-4',
+    name: 'Magasin 4',
+    category: 'magasin',
+    images: [],
+    status: 'disponible',
+    floor: 0,
+    surfaceLabel: '16 m² mezz.\n+ 33 m² garage',
   },
 ];
 

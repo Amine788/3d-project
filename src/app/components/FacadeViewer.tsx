@@ -46,9 +46,10 @@ const FACADE_MAGASIN_POSITIONS: Record<number, Record<string, { top: string; lef
     'magasin-3': { top: '68%', left: '58%' },
   },
   1: {
-    'magasin-1': { top: '72%', left: '24%' },
-    'magasin-2': { top: '72%', left: '41%' },
-    'magasin-3': { top: '72%', left: '58%' },
+    'magasin-1': { top: '72%', left: '18%' },
+    'magasin-2': { top: '72%', left: '39%' },
+    'magasin-3': { top: '72%', left: '60%' },
+    'magasin-4': { top: '72%', left: '81%' },
   },
 };
 
