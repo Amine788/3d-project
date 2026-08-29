@@ -16,12 +16,12 @@ const FACADE_MARKER_POSITIONS: Record<number, Record<string, { top: string; left
     P302: { top: '28%', left: '23%' },
   },
   1: {
-    P101: { top: '57%', left: '77%' },
-    P102: { top: '57%', left: '23%' },
-    P201: { top: '45%', left: '77%' },
-    P202: { top: '45%', left: '23%' },
-    P301: { top: '33%', left: '77%' },
-    P302: { top: '33%', left: '23%' },
+    P104: { top: '57%', left: '23%' },
+    P103: { top: '57%', left: '77%' },
+    P204: { top: '45%', left: '23%' },
+    P203: { top: '45%', left: '77%' },
+    P304: { top: '33%', left: '23%' },
+    P303: { top: '33%', left: '77%' },
   },
 };
 
