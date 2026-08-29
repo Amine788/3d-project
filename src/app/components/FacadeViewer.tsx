@@ -33,7 +33,7 @@ const FACADE_STUDIO_POSITIONS: Record<number, Record<string, { top: string; left
     'studio-2': { top: '16%', left: '23%' },
   },
   1: {
-    'studio-3': { top: '20%', left: '77%' },
+    'studio-2': { top: '20%', left: '77%' },
     'studio-1': { top: '20%', left: '23%' },
   },
 };
