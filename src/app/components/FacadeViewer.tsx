@@ -38,18 +38,18 @@ const FACADE_STUDIO_POSITIONS: Record<number, Record<string, { top: string; left
   },
 };
 
-// Magasins RDC : 3 magasins bien positionnes sur les vitrines RDC de chaque facade
+// Magasins RDC : positionnes au centre de chaque vitrine RDC
 const FACADE_MAGASIN_POSITIONS: Record<number, Record<string, { top: string; left: string }>> = {
   0: {
-    'magasin-1': { top: '68%', left: '28%' },
+    'magasin-1': { top: '68%', left: '30%' },
     'magasin-2': { top: '68%', left: '43%' },
-    'magasin-3': { top: '68%', left: '58%' },
+    'magasin-3': { top: '68%', left: '56%' },
   },
   1: {
-    'magasin-1': { top: '72%', left: '18%' },
-    'magasin-2': { top: '72%', left: '39%' },
-    'magasin-3': { top: '72%', left: '60%' },
-    'magasin-4': { top: '72%', left: '81%' },
+    'magasin-1': { top: '71%', left: '21%' },
+    'magasin-2': { top: '71%', left: '39%' },
+    'magasin-3': { top: '71%', left: '57%' },
+    'magasin-4': { top: '71%', left: '75%' },
   },
 };
 
@@ -163,13 +163,13 @@ export default function FacadeViewer() {
                   setSelectedApartment(mag);
                 }}
                 style={{ top: pos.top, left: pos.left }}
-                className="absolute z-10 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center bg-slate-950/90 backdrop-blur-md border border-emerald-400/60 hover:border-emerald-400 hover:bg-slate-900 rounded-md px-1.5 py-0.5 shadow-md transition-colors"
+                className="absolute z-10 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center bg-slate-950/95 backdrop-blur-md border border-emerald-400/70 hover:border-emerald-400 hover:bg-slate-900 rounded-md px-2 py-1 shadow-lg transition-colors"
               >
-                <span className="text-[9px] font-bold text-emerald-400 leading-tight whitespace-nowrap">
+                <span className="text-[10px] font-bold text-emerald-400 leading-snug whitespace-nowrap">
                   {mag.name}
                 </span>
                 {(mag.surfaceLabel || mag.surface !== undefined) && (
-                  <span className="text-[8px] text-white/80 leading-tight whitespace-pre-line text-center">
+                  <span className="text-[9px] text-white/95 leading-tight whitespace-pre-line text-center font-medium mt-0.5">
                     {mag.surfaceLabel ?? `${mag.surface} m²`}
                   </span>
                 )}
