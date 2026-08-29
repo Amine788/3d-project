@@ -13,6 +13,7 @@ import studio3A from '../../imports/types/studio3-a.jpg';
 import studio3B from '../../imports/types/studio3-b.jpg';
 import studio4A from '../../imports/types/studio4-a.jpg';
 import studio4B from '../../imports/types/studio4-b.jpg';
+import detailsImg from '../../imports/details.jpeg';
 
 export interface ApartmentType {
   id: string;
@@ -53,7 +54,7 @@ const apartmentTypes: ApartmentType[] = [
     id: 'appartement-2',
     name: 'Appartement 2',
     category: 'appartement',
-    images: [appartement2A, appartement2B],
+    images: [appartement2A, appartement2B, detailsImg],
     status: 'disponible',
   },
   {
@@ -103,7 +104,7 @@ const facadeApartments: ApartmentType[] = [
     id: 'P102',
     name: 'P102',
     category: 'appartement',
-    images: [appartement2A, appartement2B],
+    images: [appartement2A, appartement2B, detailsImg],
     status: 'disponible',
     floor: 1,
     surface: 83,
@@ -121,7 +122,7 @@ const facadeApartments: ApartmentType[] = [
     id: 'P202',
     name: 'P202',
     category: 'appartement',
-    images: [appartement2A, appartement2B],
+    images: [appartement2A, appartement2B, detailsImg],
     status: 'disponible',
     floor: 2,
     surface: 83,
@@ -139,7 +140,7 @@ const facadeApartments: ApartmentType[] = [
     id: 'P302',
     name: 'P302',
     category: 'appartement',
-    images: [appartement2A, appartement2B],
+    images: [appartement2A, appartement2B, detailsImg],
     status: 'disponible',
     floor: 3,
     surface: 83,
