@@ -258,7 +258,11 @@ export default function FacadeViewer() {
           }}
           className="text-sm text-white font-light tracking-wider"
         >
-          VUE <span className="text-amber-400 font-medium">FAÇADE</span>
+          {currentImageIndex === 0 ? (
+            <>FAÇADE <span className="text-amber-400 font-semibold">PRINCIPALE</span></>
+          ) : (
+            <>FAÇADE <span className="text-amber-400 font-semibold">2</span></>
+          )}
         </motion.p>
       </motion.div>
 
