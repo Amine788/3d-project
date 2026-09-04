@@ -16,12 +16,12 @@ const FACADE_MARKER_POSITIONS: Record<number, Record<string, { top: string; left
     P302: { top: '28%', left: '23%' },
   },
   1: {
-    P104: { top: '57%', left: '23%' },
-    P103: { top: '57%', left: '77%' },
-    P204: { top: '45%', left: '23%' },
-    P203: { top: '45%', left: '77%' },
-    P304: { top: '33%', left: '23%' },
-    P303: { top: '33%', left: '77%' },
+    P103: { top: '57%', left: '23%' },
+    P104: { top: '57%', left: '77%' },
+    P203: { top: '45%', left: '23%' },
+    P204: { top: '45%', left: '77%' },
+    P303: { top: '33%', left: '23%' },
+    P304: { top: '33%', left: '77%' },
   },
 };
 
@@ -33,8 +33,8 @@ const FACADE_STUDIO_POSITIONS: Record<number, Record<string, { top: string; left
     'studio-4': { top: '16%', left: '77%' },
   },
   1: {
-    'studio-1': { top: '20%', left: '23%' },
-    'studio-2': { top: '20%', left: '77%' },
+    'studio-2': { top: '20%', left: '23%' },
+    'studio-1': { top: '20%', left: '77%' },
   },
 };
 
