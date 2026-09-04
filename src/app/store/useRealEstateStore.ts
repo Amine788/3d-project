@@ -1,10 +1,10 @@
 import { create } from 'zustand';
 import facadePrincipale from '../../imports/facade-principale.jpg';
 import facadeArriere from '../../imports/facade-arriere.jpg';
-import appartement1A from '../../imports/types/appartement1-a.jpg';
-import appartement1B from '../../imports/types/appartement1-b.jpg';
-import appartement2A from '../../imports/types/appartement2-a.jpg';
-import appartement2B from '../../imports/types/appartement2-b.jpg';
+import photo75A from '../../imports/types/75.jpeg';
+import photo75B from '../../imports/types/75 (2).jpeg';
+import photo83A from '../../imports/types/83.jpeg';
+import photo83B from '../../imports/types/83 (2).jpeg';
 import studio1A from '../../imports/types/studio1-a.jpg';
 import studio1B from '../../imports/types/studio1-b.jpg';
 import studio2A from '../../imports/types/studio2-a.jpg';
@@ -48,14 +48,14 @@ const apartmentTypes: ApartmentType[] = [
     id: 'appartement-1',
     name: 'Appartement 1',
     category: 'appartement',
-    images: [appartement1A, appartement1B, details75mImg],
+    images: [photo75A, photo75B, details75mImg],
     status: 'disponible',
   },
   {
     id: 'appartement-2',
     name: 'Appartement 2',
     category: 'appartement',
-    images: [appartement2A, appartement2B, detailsImg],
+    images: [photo83A, photo83B, detailsImg],
     status: 'disponible',
   },
   {
@@ -98,7 +98,7 @@ const facadeApartments: ApartmentType[] = [
     id: 'P101',
     name: 'P101',
     category: 'appartement',
-    images: [appartement1A, appartement1B, details75mImg],
+    images: [photo75A, photo75B, details75mImg],
     status: 'disponible',
     floor: 1,
     surface: 75,
@@ -107,7 +107,7 @@ const facadeApartments: ApartmentType[] = [
     id: 'P102',
     name: 'P102',
     category: 'appartement',
-    images: [appartement2A, appartement2B, detailsImg],
+    images: [photo83A, photo83B, detailsImg],
     status: 'disponible',
     floor: 1,
     surface: 83,
@@ -116,7 +116,7 @@ const facadeApartments: ApartmentType[] = [
     id: 'P103',
     name: 'P103',
     category: 'appartement',
-    images: [appartement1A, appartement1B, details75mImg],
+    images: [photo75A, photo75B, details75mImg],
     status: 'disponible',
     floor: 1,
     surface: 75,
@@ -125,7 +125,7 @@ const facadeApartments: ApartmentType[] = [
     id: 'P104',
     name: 'P104',
     category: 'appartement',
-    images: [appartement2A, appartement2B, detailsImg],
+    images: [photo83A, photo83B, detailsImg],
     status: 'disponible',
     floor: 1,
     surface: 83,
@@ -134,7 +134,7 @@ const facadeApartments: ApartmentType[] = [
     id: 'P201',
     name: 'P201',
     category: 'appartement',
-    images: [appartement1A, appartement1B, details75mImg],
+    images: [photo75A, photo75B, details75mImg],
     status: 'disponible',
     floor: 2,
     surface: 75,
@@ -143,7 +143,7 @@ const facadeApartments: ApartmentType[] = [
     id: 'P202',
     name: 'P202',
     category: 'appartement',
-    images: [appartement2A, appartement2B, detailsImg],
+    images: [photo83A, photo83B, detailsImg],
     status: 'disponible',
     floor: 2,
     surface: 83,
@@ -152,7 +152,7 @@ const facadeApartments: ApartmentType[] = [
     id: 'P203',
     name: 'P203',
     category: 'appartement',
-    images: [appartement1A, appartement1B, details75mImg],
+    images: [photo75A, photo75B, details75mImg],
     status: 'disponible',
     floor: 2,
     surface: 75,
@@ -161,7 +161,7 @@ const facadeApartments: ApartmentType[] = [
     id: 'P204',
     name: 'P204',
     category: 'appartement',
-    images: [appartement2A, appartement2B, detailsImg],
+    images: [photo83A, photo83B, detailsImg],
     status: 'disponible',
     floor: 2,
     surface: 83,
@@ -170,7 +170,7 @@ const facadeApartments: ApartmentType[] = [
     id: 'P301',
     name: 'P301',
     category: 'appartement',
-    images: [appartement1A, appartement1B, details75mImg],
+    images: [photo75A, photo75B, details75mImg],
     status: 'disponible',
     floor: 3,
     surface: 75,
@@ -179,7 +179,7 @@ const facadeApartments: ApartmentType[] = [
     id: 'P302',
     name: 'P302',
     category: 'appartement',
-    images: [appartement2A, appartement2B, detailsImg],
+    images: [photo83A, photo83B, detailsImg],
     status: 'disponible',
     floor: 3,
     surface: 83,
@@ -188,7 +188,7 @@ const facadeApartments: ApartmentType[] = [
     id: 'P303',
     name: 'P303',
     category: 'appartement',
-    images: [appartement1A, appartement1B, details75mImg],
+    images: [photo75A, photo75B, details75mImg],
     status: 'disponible',
     floor: 3,
     surface: 75,
@@ -197,7 +197,7 @@ const facadeApartments: ApartmentType[] = [
     id: 'P304',
     name: 'P304',
     category: 'appartement',
-    images: [appartement2A, appartement2B, detailsImg],
+    images: [photo83A, photo83B, detailsImg],
     status: 'disponible',
     floor: 3,
     surface: 83,
