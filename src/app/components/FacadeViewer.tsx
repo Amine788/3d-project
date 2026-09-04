@@ -29,12 +29,12 @@ const FACADE_MARKER_POSITIONS: Record<number, Record<string, { top: string; left
 // studio-3/4 uniquement sur la facade arriere (index 1).
 const FACADE_STUDIO_POSITIONS: Record<number, Record<string, { top: string; left: string }>> = {
   0: {
-    'studio-1': { top: '16%', left: '77%' },
-    'studio-2': { top: '16%', left: '23%' },
+    'studio-3': { top: '16%', left: '23%' },
+    'studio-4': { top: '16%', left: '77%' },
   },
   1: {
-    'studio-2': { top: '20%', left: '77%' },
     'studio-1': { top: '20%', left: '23%' },
+    'studio-2': { top: '20%', left: '77%' },
   },
 };
 
