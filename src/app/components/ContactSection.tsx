@@ -61,7 +61,7 @@ export default function ContactSection() {
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <Phone className="size-3.5 sm:size-4 text-amber-400 shrink-0" />
-                  <p className="text-xs sm:text-sm text-white">+212 636-232187</p>
+                  <a href="tel:+212661733979" className="text-xs sm:text-sm text-white hover:text-amber-400 transition-colors">+212 661-733979</a>
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="size-3.5 sm:size-4 text-amber-400 shrink-0" />

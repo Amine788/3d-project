@@ -46,7 +46,7 @@ export default function Navbar() {
               <span className="text-sm font-medium">Localisation</span>
             </motion.a>
             <motion.a
-              href="tel:+212636232187"
+              href="tel:+212661733979"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="flex items-center gap-2 bg-amber-400 text-slate-950 px-6 py-2.5 rounded-full hover:bg-amber-500 transition-colors"
@@ -83,7 +83,7 @@ export default function Navbar() {
               <span className="text-sm font-medium">Localisation</span>
             </a>
             <a
-              href="tel:+212636232187"
+              href="tel:+212661733979"
               className="w-full flex items-center justify-center gap-2 bg-amber-400 text-slate-950 px-6 py-3 rounded-full hover:bg-amber-500 transition-colors"
             >
               <Phone className="size-4" />
