@@ -65,8 +65,9 @@ export default function FacadeViewer() {
   };
   const magasinPositions = FACADE_MAGASIN_POSITIONS[currentImageIndex] ?? {};
   const studios = apartmentTypes.filter((a) => a.category === 'studio');
-  const facadeMarkerItems = [...facadeApartments, ...studios];
-  const facadeMagasinItems = facadeMagasins.filter((m) => magasinPositions[m.id]);
+  // Masquer temporairement les magasins des facades (prets a etre reactivees plus tard)
+  const SHOW_MAGASINS = false;
+  const facadeMagasinItems = SHOW_MAGASINS ? facadeMagasins.filter((m) => magasinPositions[m.id]) : [];
 
   useEffect(() => {
     if (imageRef.current) {
