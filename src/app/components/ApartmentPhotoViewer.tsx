@@ -82,10 +82,16 @@ export default function ApartmentPhotoViewer() {
               className={`text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded inline-block ${
                 selectedApartment.status === 'disponible'
                   ? 'text-emerald-950 bg-emerald-400'
+                  : selectedApartment.status === 'reserve'
+                  ? 'text-amber-950 bg-amber-400 font-extrabold'
                   : 'text-red-950 bg-red-400'
               }`}
             >
-              {selectedApartment.status === 'disponible' ? 'Disponible' : 'Vendu'}
+              {selectedApartment.status === 'disponible'
+                ? 'Disponible'
+                : selectedApartment.status === 'reserve'
+                ? 'Réservé'
+                : 'Vendu'}
             </span>
             {selectedApartment.floor !== undefined && (
               <span className="text-[10px] font-bold uppercase tracking-widest text-slate-300 bg-white/10 px-2 py-0.5 rounded inline-block">

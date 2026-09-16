@@ -21,7 +21,7 @@ export interface ApartmentType {
   name: string;
   category: 'appartement' | 'studio' | 'magasin';
   images: string[];
-  status: 'disponible' | 'vendu';
+  status: 'disponible' | 'vendu' | 'reserve';
   floor?: number;
   surface?: number;
   surfaceLabel?: string;
@@ -71,7 +71,7 @@ const apartmentTypes: ApartmentType[] = [
     name: 'Studio 2',
     category: 'studio',
     images: [studio2A, studio2B],
-    status: 'disponible',
+    status: 'reserve',
     surfaceLabel: '55 m² + 25 m² terrasse',
   },
   {
@@ -87,7 +87,7 @@ const apartmentTypes: ApartmentType[] = [
     name: 'Studio 4',
     category: 'studio',
     images: [studio4A, studio4B],
-    status: 'disponible',
+    status: 'reserve',
     surfaceLabel: '53 m² + 23 m² terrasse',
   },
 ];
@@ -99,7 +99,7 @@ const facadeApartments: ApartmentType[] = [
     name: 'P101',
     category: 'appartement',
     images: [photo75A, photo75B, details75mImg],
-    status: 'disponible',
+    status: 'reserve',
     floor: 1,
     surface: 75,
   },
@@ -135,7 +135,7 @@ const facadeApartments: ApartmentType[] = [
     name: 'P201',
     category: 'appartement',
     images: [photo75A, photo75B, details75mImg],
-    status: 'disponible',
+    status: 'reserve',
     floor: 2,
     surface: 75,
   },
@@ -162,7 +162,7 @@ const facadeApartments: ApartmentType[] = [
     name: 'P204',
     category: 'appartement',
     images: [photo83A, photo83B, detailsImg],
-    status: 'disponible',
+    status: 'reserve',
     floor: 2,
     surface: 83,
   },
@@ -180,7 +180,7 @@ const facadeApartments: ApartmentType[] = [
     name: 'P302',
     category: 'appartement',
     images: [photo83A, photo83B, detailsImg],
-    status: 'disponible',
+    status: 'reserve',
     floor: 3,
     surface: 83,
   },

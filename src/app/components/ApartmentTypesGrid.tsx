@@ -73,10 +73,12 @@ export default function ApartmentTypesGrid() {
                     className={`text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full ${
                       type.status === 'disponible'
                         ? 'bg-emerald-400/90 text-emerald-950'
+                        : type.status === 'reserve'
+                        ? 'bg-amber-400/90 text-amber-950 font-extrabold'
                         : 'bg-red-400/90 text-red-950'
                     }`}
                   >
-                    {type.status === 'disponible' ? 'Disponible' : 'Vendu'}
+                    {type.status === 'disponible' ? 'Disponible' : type.status === 'reserve' ? 'Réservé' : 'Vendu'}
                   </span>
                 </div>
 

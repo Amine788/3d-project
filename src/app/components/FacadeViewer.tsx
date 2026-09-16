@@ -133,11 +133,22 @@ export default function FacadeViewer() {
                   setSelectedApartment(apt);
                 }}
                 style={{ top: pos.top, left: pos.left }}
-                className="absolute z-10 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center bg-slate-950/90 backdrop-blur-md border border-amber-400/60 hover:border-amber-400 hover:bg-slate-900 rounded-md px-1.5 py-0.5 shadow-md transition-colors"
+                className={`absolute z-10 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center bg-slate-950/90 backdrop-blur-md rounded-md px-1.5 py-0.5 shadow-md transition-colors ${
+                  apt.status === 'reserve'
+                    ? 'border border-amber-500/80 hover:border-amber-400 hover:bg-slate-900 ring-1 ring-amber-500/40'
+                    : 'border border-amber-400/60 hover:border-amber-400 hover:bg-slate-900'
+                }`}
               >
-                <span className="text-[9px] font-bold text-amber-400 leading-tight whitespace-nowrap">
-                  {apt.name}
-                </span>
+                <div className="flex items-center gap-1">
+                  <span className="text-[9px] font-bold text-amber-400 leading-tight whitespace-nowrap">
+                    {apt.name}
+                  </span>
+                  {apt.status === 'reserve' && (
+                    <span className="text-[7px] font-extrabold uppercase px-1 rounded bg-amber-400 text-slate-950 leading-tight">
+                      Réservé
+                    </span>
+                  )}
+                </div>
                 {(apt.surfaceLabel || apt.surface !== undefined) && (
                   <span className="text-[8px] text-white/80 leading-none whitespace-nowrap">
                     {apt.surfaceLabel ?? `${apt.surface} m²`}
