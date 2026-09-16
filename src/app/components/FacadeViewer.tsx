@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { useRealEstateStore } from '../store/useRealEstateStore';
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import { ChevronLeft, ChevronRight, Home } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Home, MapPin } from 'lucide-react';
 
 // Position (en % de l'image carree) des boutons d'appartement par facade.
 // index 0 = facade principale, index 1 = facade arriere.
@@ -113,7 +113,7 @@ export default function FacadeViewer() {
             ref={imageRef}
             key={currentImageIndex}
             src={facadeImages[currentImageIndex]}
-            alt="Façade du bâtiment"
+            alt={currentImageIndex === 0 ? "Façade principale" : "Façade arrière"}
             className="w-full h-full object-cover"
           />
 
@@ -275,19 +275,29 @@ export default function FacadeViewer() {
           {currentImageIndex === 0 ? (
             <>FAÇADE <span className="text-amber-400 font-semibold">PRINCIPALE</span></>
           ) : (
-            <>FAÇADE <span className="text-amber-400 font-semibold">2</span></>
+            <>FAÇADE <span className="text-amber-400 font-semibold">ARRIÈRE</span></>
           )}
         </motion.p>
       </motion.div>
 
       <motion.div
-        className="absolute top-20 right-8 bg-slate-950/90 backdrop-blur-xl px-4 py-3 rounded-xl border border-white/10 shadow-xl"
+        className="absolute top-20 right-8 bg-slate-950/90 backdrop-blur-xl px-4 py-3 rounded-xl border border-white/10 shadow-xl z-20"
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.3 }}
       >
         <p className="text-xs text-slate-400 mb-1">Projet</p>
-        <p className="text-sm text-amber-400 font-medium">CASABLANCA</p>
+        <p className="text-sm text-amber-400 font-medium mb-1.5">CASABLANCA</p>
+        <a
+          href="https://www.google.com/maps/place/33%C2%B032'37.7%22N+7%C2%B040'21.1%22W/@33.543808,-7.6750889,17z/data=!3m1!4b1!4m4!3m3!8m2!3d33.543808!4d-7.672514?hl=en&entry=ttu&g_ep=EgoyMDI2MDkxNC4wIKXMDSoASAFQAw%3D%3D"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1.5 text-xs text-slate-300 hover:text-amber-400 transition-colors group"
+          title="Voir la localisation sur Google Maps"
+        >
+          <MapPin className="size-3.5 text-amber-400 group-hover:scale-110 transition-transform shrink-0" />
+          <span className="font-mono text-[11px]">33°32'37.7"N 7°40'21.1"W</span>
+        </a>
       </motion.div>
     </div>
   );

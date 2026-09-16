@@ -44,7 +44,7 @@ export default function ContactSection() {
               className="px-3 pb-4 sm:px-6 sm:pb-6 space-y-2 sm:space-y-3 overflow-hidden"
             >
               <motion.a
-                href="https://www.google.com/maps/search/?api=1&query=Casablanca,Maroc"
+                href="https://www.google.com/maps/place/33%C2%B032'37.7%22N+7%C2%B040'21.1%22W/@33.543808,-7.6750889,17z/data=!3m1!4b1!4m4!3m3!8m2!3d33.543808!4d-7.672514?hl=en&entry=ttu&g_ep=EgoyMDI2MDkxNC4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02, x: 3 }}
@@ -53,8 +53,8 @@ export default function ContactSection() {
               >
                 <MapPin className="size-4 text-amber-400 shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-xs sm:text-sm text-white font-medium">📍 Voir sur Google Maps</p>
-                  <p className="text-[10px] sm:text-xs text-amber-400/80 mt-0.5">Cliquez pour voir l'adresse</p>
+                  <p className="text-xs sm:text-sm text-white font-medium">📍 Localisation Google Maps</p>
+                  <p className="text-[10px] sm:text-xs text-amber-400/90 mt-0.5 font-mono">33°32'37.7"N 7°40'21.1"W</p>
                 </div>
               </motion.a>
 
